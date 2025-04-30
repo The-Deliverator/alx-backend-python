@@ -6,9 +6,7 @@ of running 4 instances of the async_comprehension function from the
 """
 import asyncio
 import time
-from importlib import import_module as using
-
-async_comprehension = using('1-async_comprehension').async_comprehension
+async_comprehension = __import__('1-async_comprehension').async_comprehension
 
 
 async def measure_runtime() -> float:
@@ -23,4 +21,4 @@ async def measure_runtime() -> float:
     )
     end_time = time.perf_counter()
 
-    return end_time - start_time
+    return time.perf_counter() - start_time
